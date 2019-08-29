@@ -20,7 +20,7 @@ public class TimerPlain extends HttpServlet {
         response.setContentType("text/plain");
         response.setCharacterEncoding("utf-8");
         try (PrintWriter writer = response.getWriter()) {
-            writer.println(LocalTime.now());
+            writer.println(LocalTime.now()); // il writer ritorna LocalTime.now(): ritorna testo sempl in formato F8 e il contenuto del testo è semplicemnete localtime
         }
     }
 

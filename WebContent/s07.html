@@ -10,7 +10,7 @@
 <script type="text/javascript">
     $(function() {
         $('#btnPlain').click(function() {
-            $.ajax({
+            $.ajax({ //.click(function() risponde facendo una chiamata a ajax e gli passo l oggetto con una componente url che è l indsirizzo che voglio chiedere al server e nel caso di successo mi dai la data che metterò nel file di testo
                 url : "s07.txt",
                 success : function(data) {
                     $('#targetPlain').text(data);
@@ -19,17 +19,17 @@
         })
 
         $('#btnLoad').click(function() {
-            $('#targetLoad').load('s07.txt');
+            $('#targetLoad').load('s07.txt'); //si usa al posto di ajax. in qst caso dico di voler caricare il risultato della get 
         });
 
         $('#btnLoadSrv').click(function() {
-            $('#targetLoadSrv').load('/edwpot/s07/timerPlain');
-        });
+            $('#targetLoadSrv').load('/edwpot/s07/timerPlain');//richiama una funzione che è utile scrivere in .java
+        }); //qst lo utilizziamo se vogliamo fare un input
 
         $('#btnGetSrv').click(function() {
-            $.get('/edwpot/s07/timerPlain', function(data) {
+            $.get('/edwpot/s07/timerPlain', function(data) { // in qst caso chiama esplicitamente una get e mentre load mi mette il risultato nel testo, val va a mettere il risultato dentro un input
                 $('#targetGetSrv').val(data);
-            });
+            }); //qst lo utilizziamo se vogliamo metterlo in un paragrafo
         });
     });
 </script>
