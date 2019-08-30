@@ -9,24 +9,24 @@
  -->
 <script type="text/javascript">
     $(function() {
-        $('#btnPlain').click(function() {
+        $('#btnPlain').click(function() { //.ajax è un metodo. metodo asincrono: nn sto ad attendere la risposta ma continuo a fare le cose che devo fare. ajax viene esattamente dopo un evento ready
             $.ajax({ //.click(function() risponde facendo una chiamata a ajax e gli passo l oggetto con una componente url che è l indsirizzo che voglio chiedere al server e nel caso di successo mi dai la data che metterò nel file di testo
                 url : "s07.txt",
-                success : function(data) {
-                    $('#targetPlain').text(data);
+                success : function(data) { //azione che voglio venga eseguita nel caso di successo. se arriva la risposta 200, la risposta è valida e mi arriva qll che io ho passato nel success. la funzione di successo avrà un parametro data e poi il corpo della funzione. il browser chiama la funzione. Data sarà un file di testo poichè l abbiamo chiamato poco fa. 
+                    $('#targetPlain').text(data); 
                 }
             })
         })
 
-        $('#btnLoad').click(function() {
-            $('#targetLoad').load('s07.txt'); //si usa al posto di ajax. in qst caso dico di voler caricare il risultato della get 
+        $('#btnLoad').click(function() { //qst è il funzionamento della jquery. '#btnLoad' è un selector, $('#btnLoad') è una funzione: vai sul DOM,cercami quegli elementi che hanno ql selettore e ritornamelo
+            $('#targetLoad').load('s07.txt'); //si usa al posto di ajax. in qst caso dico di voler caricare il risultato della get . nella load gli passiamo l url che è associato al get  
         });
 
         $('#btnLoadSrv').click(function() {
             $('#targetLoadSrv').load('/edwpot/s07/timerPlain');//richiama una funzione che è utile scrivere in .java
-        }); //qst lo utilizziamo se vogliamo fare un input
+        }); //qst lo utilizziamo se vogliamo fare un input. 
 
-        $('#btnGetSrv').click(function() {
+        $('#btnGetSrv').click(function() { // in $.get() gli passo l indirizzo '/edwpot/s07/timerPlain' e poi la funzione 
             $.get('/edwpot/s07/timerPlain', function(data) { // in qst caso chiama esplicitamente una get e mentre load mi mette il risultato nel testo, val va a mettere il risultato dentro un input
                 $('#targetGetSrv').val(data);
             }); //qst lo utilizziamo se vogliamo metterlo in un paragrafo
@@ -62,3 +62,14 @@
     </div>
 </body>
 </html>
+
+
+<!-- supp di fare un richiamo alla webservlet, nell url mettiamo la risorsa della webservlet
+e se vogliamo che la risposta sia un testo e vogliamo metterlo dentro un paragrafo che ha un id='x', dobb scrivere 
+function (data){
+$('#x').text(data);
+} 
+
+differenza tra .load e .get -> in load ritorna un testo, se voglio ritornare altro allora mi faccio un get 
+
+-->

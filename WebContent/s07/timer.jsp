@@ -1,6 +1,6 @@
 <%@ page import="java.time.LocalTime"%> 
 <!DOCTYPE html> 
-<html>
+<html> <!-- codice del servlet. noi in realtà non vediamo una servlet, ma tomcat la vede invece come tale -->
 <head>
 <meta charset="utf-8">
 <title>Hello JSP</title>
@@ -13,3 +13,5 @@
     </h1>
 </body>
 </html>
+
+<%-- <%@ page import="java.time.LocalTime"%> istruzione per java e qst è visibile dai <% --%>

@@ -10,7 +10,7 @@
     <h1>The greeter page</h1>
 
     <p>
-        <%
+        <%  
             Duration duration = (Duration) request.getAttribute("duration");
             out.print("You started working on this stuff " + duration.getSeconds() + " seconds ago");
         %>

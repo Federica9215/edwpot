@@ -40,7 +40,7 @@ import javax.servlet.http.HttpServletResponse;
 //    }
 //}
 
-@WebServlet("/s08/checker") //a che risorsa risponde la mia server; è indirizzo che mi dev
+@WebServlet("/s08/checker") //a che risorsa risponde la mia server; 
 public class Checker extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
