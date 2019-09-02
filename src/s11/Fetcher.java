@@ -33,7 +33,7 @@ public class Fetcher extends HttpServlet {
             id = 1;
         }
 
-        request.setAttribute("user", new User(name, id));
+        request.setAttribute("user", new User(name, id)); //crea un bean che ci mette un nome e un id
 
         RequestDispatcher rd = request.getRequestDispatcher("/s11/fetch.jsp");
         rd.forward(request, response);

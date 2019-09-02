@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<sql:query dataSource="jdbc/hr" var="regions">select * from regions</sql:query>
+<sql:query dataSource="jdbc/hr" var="regions">select * from regions</sql:query> <!-- dataSource=mi permette di fare la connessione al database -->
 <title>HR Regions</title>
 </head>
 <body>
@@ -15,9 +15,9 @@
             <th>id</th>
             <th>name</th>
         </tr>
-        <c:forEach var="cur" items="${regions.rows}">
+        <c:forEach var="cur" items="${regions.rows}"> <!-- rows:collezione di tt le righe -->
             <tr>
-                <td>${cur.REGION_ID}</td>
+                <td>${cur.REGION_ID}</td> <!-- variabili di oracle, quelle che leggiamo nel database -->
                 <td>${cur.REGION_NAME}</td>
             </tr>
         </c:forEach>
